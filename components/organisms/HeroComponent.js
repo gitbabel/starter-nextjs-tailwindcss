@@ -10,17 +10,17 @@
 const HeroComponent = ({ props }) => {
   const { src, name, mdContent } = props
   return (
-    <div className='p-5 rounded-md h-auto bg-white w-1/2'>
+    <div className='p-8 rounded-md h-auto bg-white w-1/3'>
       <div className='flex justify-center'>
         <img
           className='w-36 h-36 rounded-full object-cover mb-8'
           src={src}
         />
       </div>
-      <span className='text-4xl spanb-4'>
+      <span className='text-4xl font-extrabold'>
         {name}
       </span>
-      <p>
+      <p className='pt-4 pb-4'>
         {mdContent}
       </p>
     </div>
