@@ -4,17 +4,17 @@ import { HeroComponent } from '../../components/organisms/HeroComponent'
 
 export default {
   title: 'HeroComponent',
-  component: HeroComponent,
-  argTypes: {
-    backgroundColor: { control: 'color' }
-  }
+  component: HeroComponent
+  // argTypes: {
+  //   backgroundColor: { control: 'color' }
+  // }
 }
 
 const Template = (args) => <HeroComponent {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {
-  primary: true,
+  // primary: true,
   label: 'HeroComponent'
 }
 

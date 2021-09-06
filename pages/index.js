@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import HeroComponent from '../components/organisms/HeroComponent'
+import HeroComponent from '../components/organisms/Hero/HeroComponent'
 
 const apollopayload =
   {
@@ -15,7 +15,7 @@ export default function Home () {
         <title>Create Next App</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <div className='flex justify-center bg-[#29b5ed] p-4'>
+      <div className='flex justify-center bg-[#29b5ed] p-4 h-screen'>
         <HeroComponent props={apollopayload} />
       </div>
     </>

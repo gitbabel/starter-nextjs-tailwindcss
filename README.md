@@ -22,11 +22,11 @@ yarn dev
 
 Make sure you create a `.env.local` which will hold your API configurations
 
-<!-- ```
+```
 # LocalDev
 #GRAPHQL_API_URL=http://localhost:4000/graphql
 #API_BEARER_TOKEN=
-``` -->
+```
 
 <!-- ### Setup LeftHook
 
