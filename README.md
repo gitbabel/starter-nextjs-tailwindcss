@@ -1,29 +1,57 @@
-# Next.js + Tailwind CSS Example
+# Next-JS Community Site
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v2.2)](https://blog.tailwindcss.com/tailwindcss-2-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+## Overview
 
-It uses the new [`Just-in-Time Mode`](https://tailwindcss.com/docs/just-in-time-mode) for Tailwind CSS.
+This repository is the source for the community gitBabel site It was built ontop of [nextjs](https://nextjs.org/)
 
-## Preview
+For our instance of NextJS we opted to use [tailwind-css](https://tailwindcss.com/) instead of the default [styled-components](https://styled-components.com/) that has been our standard on the NextJS Marketing site.
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
+## Install & Run
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
-
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+Install it and run:
 
 ```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
+npm install
+npm run dev
 # or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
+yarn
+yarn dev
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## Env.Local
+
+Make sure you create a `.env.local` which will hold your API configurations
+
+```
+# LocalDev
+#GRAPHQL_API_URL=http://localhost:4000/graphql
+#API_BEARER_TOKEN=
+```
+
+<!-- ### Setup LeftHook
+
+```bash
+brew install lefthook
+lefthook install
+``` -->
+
+## Deployment
+
+```bash
+git fetch --all
+
+# make sure you get changes
+git pull origin staging
+
+# checkout into master
+git checkout master
+
+# check for things in master -- should never happen but ya,never know
+git pull origin master
+
+# merge staging into master
+git merge staging
+
+# push it up to master so we are in sync
+git push origin master
+```
