@@ -1,9 +1,9 @@
 // import Image from 'next/dist/client/image'
 
-const HeroComponent = ({ props }) => {
+const HeroComponent = (props) => {
   const { src, name, mdContent } = props
   return (
-    <div className='p-8 rounded-md h-auto bg-white w-1/3'>
+    <div className='p-8 rounded-md h-auto bg-white min-w-1/2 max-w-1/2 sm:w-3/6 lg:max-w-3/4'>
       <div className='flex justify-center'>
         <img
           className='w-36 h-36 rounded-full object-cover mb-8'

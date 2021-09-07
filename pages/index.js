@@ -16,7 +16,7 @@ export default function Home () {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <div className='flex justify-center bg-[#29b5ed] p-4 h-screen'>
-        <HeroComponent props={apollopayload} />
+        <HeroComponent {...apollopayload} />
       </div>
     </>
   )
