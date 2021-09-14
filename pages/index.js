@@ -50,18 +50,44 @@ export default function Home (props) {
     }
 
   })
+
+  console.log(client)
+
+  const GET_COLLECTIONS = gql`{
+    collections {
+      uuid
+      title
+      description
+      repository
+      owner
+      source
+    }
+  }`
+
+  const { loading, error, data } = useQuery(GET_COLLECTIONS)
+
+  // if (loading) {
+  //   return (<div />)
+  // } else if (error) {
+  //   console.log(error)
+  //   return (<div><p>Apollo Had an Error - check logs</p></div>)
+  // }
+
+  // console.log(data)
+  // console.log(client)
+
   return (
     <>
+      {/* <ApolloProvider client={client}> */}
       <Head>
         <title>Create Next App</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <ApolloProvider client={client}>
-        <div className='flex flex-col items-center align-items bg-[#29b5ed] p-4 h-screen'>
-          <HeroComponent {...heropayload} />
-          <CollectionsData {...collectionspayload} />
-        </div>
-      </ApolloProvider>
+      <div className='flex flex-col items-center align-items bg-[#29b5ed] p-4 h-screen'>
+        <HeroComponent {...heropayload} />
+        <CollectionsData {...collectionspayload} />
+      </div>
+      {/* </ApolloProvider> */}
     </>
   )
 }
