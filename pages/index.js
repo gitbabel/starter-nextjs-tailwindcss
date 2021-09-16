@@ -2,7 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 
 // Just need the query interfaces
-import { ApolloClient, ApolloProvider, gql, useQuery } from '@apollo/client'
+import { ApolloClient, ApolloProvider } from '@apollo/client'
 // ApolloClient REQUIRES a `cache` object
 import { cache } from '../lib/cache'
 
@@ -33,47 +33,6 @@ export async function getStaticProps (context) {
   }
 }
 
-const SubComponent = (props) => {
-  // for different GraphQL engines (ApolloClient, React Query...)
-  const GET_TOPICS_QUERY_FOR_LIBRARY = gql`{
-    topics {
-      uuid,
-      title,
-      type,
-      urlSlug,
-      repository,
-      owner,
-      ownerType,
-      updatedAt
-    }
-  }`
-  // This is like a react-hook FYI and has to be on the root component
-  const { loading, error, data } = useQuery(GET_TOPICS_QUERY_FOR_LIBRARY)
-
-  if (loading) {
-    return (<div />)
-  } else if (error) {
-    console.log(error)
-    return (<div><p>Apollo Had an Error - check logs</p></div>)
-  }
-
-  // console.log('ApolloQuery:', data)
-  return (
-    <div>
-      <h2>POC ApolloClient Test</h2>
-
-      <div>
-        <p>Total Topics: {data.topics.length}</p>
-        <ul>
-          {React.Children.toArray(
-            data.topics.map(topic => <li>{topic.title}</li>)
-          )}
-        </ul>
-      </div>
-    </div>
-  )
-}
-
 export default function Home (props) {
   // TODO: abstract queries into a lib/query folder, realizing we can create a shared package
   const GRAPHQL_API_URL = props.GRAPHQL_API_URL
@@ -90,24 +49,18 @@ export default function Home (props) {
     headers: {
       Authorization: `Bearer: ${props.API_BEARER_TOKEN}`
     }
-
   })
-
-  console.log(client)
-
-  // console.log(client)
 
   return (
     <>
       <ApolloProvider client={client}>
         <Head>
-          <title>Create Next App</title>
+          <title>gitBabel Developer Page Proof-Of-Concept</title>
           <link rel='icon' href='/favicon.ico' />
         </Head>
         <div className='flex flex-col items-center align-items bg-[#29b5ed] p-4 h-screen'>
           <HeroComponent {...heropayload} />
           <CollectionsData {...collectionspayload} />
-          <SubComponent />
         </div>
       </ApolloProvider>
     </>
