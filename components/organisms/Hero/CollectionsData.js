@@ -5,19 +5,6 @@ import { gql, useQuery } from '@apollo/client'
 const CollectionsData = (props) => {
   const { reponame, pr, details } = props
 
-  // const GET_TOPICS = gql`{
-  //   topics {
-  //     uuid,
-  //     title,
-  //     type,
-  //     urlSlug,
-  //     repository,
-  //     owner,
-  //     ownerType,
-  //     updatedAt
-  //   }
-  // }`
-
   const GET_TOPICS = gql`{
     topics {
       uuid,
@@ -75,6 +62,8 @@ const CollectionsData = (props) => {
 
   const tecdata = data.topics.filter(result => result.repository === 'techtonica-assignments')
   const sorted = tecdata.sort((a, b) => a.filepath.localeCompare(b.filepath))
+
+  console.log(sorted)
 
   const markup = sorted.map((item, index) => {
     return (

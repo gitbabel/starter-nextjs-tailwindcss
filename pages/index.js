@@ -42,7 +42,7 @@ export default function Home (props) {
     uri: GRAPHQL_API_URL,
     connectToDevTools: true,
     // Allow 3rd Party (api-calls), requires CORS enablement
-    credentials: 'include',
+    // credentials: 'include',
     // ApolloClient 3.x requires a cache object
     // our cache is generated from ./cache.js
     cache: cache,
