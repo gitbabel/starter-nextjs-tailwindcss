@@ -6,9 +6,12 @@ import { ApolloClient, ApolloProvider } from '@apollo/client'
 // ApolloClient REQUIRES a `cache` object
 import { cache } from '../lib/cache'
 
+// Atoms
+
 // Organisms
 import CollectionsData from '../components/organisms/Hero/CollectionsData'
 import HeroComponent from '../components/organisms/Hero/HeroComponent'
+import Projects from '../components/organisms/Hero/Projects'
 
 const heropayload =
   {
@@ -58,9 +61,10 @@ export default function Home (props) {
           <title>gitBabel Developer Page Proof-Of-Concept</title>
           <link rel='icon' href='/favicon.ico' />
         </Head>
-        <div className='flex flex-col items-center align-items bg-[#29b5ed] p-4 h-screen'>
+        <div className='flex flex-col items-center align-items bg-[#29b5ed] p-4 '>
           <HeroComponent {...heropayload} />
           <CollectionsData {...collectionspayload} />
+          <Projects />
         </div>
       </ApolloProvider>
     </>

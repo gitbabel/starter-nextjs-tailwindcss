@@ -1,5 +1,16 @@
+// Atoms
 import GithubGlyph from '../../atoms/GithubGlyph'
+import PullRequest from '../../atoms/PullRequest'
 
+// MUI Timeline
+import Timeline from '@mui/lab/Timeline'
+import TimelineItem from '@mui/lab/TimelineItem'
+import TimelineSeparator from '@mui/lab/TimelineSeparator'
+import TimelineConnector from '@mui/lab/TimelineConnector'
+import TimelineContent from '@mui/lab/TimelineContent'
+import TimelineDot from '@mui/lab/TimelineDot'
+
+// Apollo
 import { gql, useQuery } from '@apollo/client'
 
 const CollectionsData = (props) => {
@@ -62,27 +73,42 @@ const CollectionsData = (props) => {
 
   const tecdata = data.topics.filter(result => result.repository === 'techtonica-assignments')
   const sorted = tecdata.sort((a, b) => a.filepath.localeCompare(b.filepath))
+  sorted.reverse()
 
   console.log(sorted)
 
   const markup = sorted.map((item, index) => {
     return (
-      <div key={index} className='pb-4 bg-purple-700 bg-opacity-25 border-4 border-yellow-400'>
-        <b><p className='pr-4'>{item.title}</p></b>
-        <p className='font-accent text-blue-500'>{item.filepath}</p>
+      <div key={index} className=''>
+        <Timeline>
+          <TimelineItem>
+            <TimelineSeparator>
+              <TimelineDot />
+              <TimelineConnector />
+            </TimelineSeparator>
+            <TimelineContent>
+              <b><p className=''>Week {index + 1}</p></b>
+              <div className='flex flex-row'>
+                <p className='font-accent text-blue-500'>{item.filepath}</p>
+                <div className=''><PullRequest />PR/{index + 1}</div>
+              </div>
+            </TimelineContent>
+          </TimelineItem>
+        </Timeline>
       </div>
+
     )
   })
 
   return (
-    <div className='p-8 rounded-md h-auto bg-white min-w-1/2 max-w-1/2 sm:w-3/6 lg:max-w-3/4'>
+    <div className='p-8 m-8 rounded-md h-auto bg-white min-w-1/2 max-w-1/2 sm:w-3/6 lg:max-w-3/4'>
       <span className='text-4xl font-extrabold'>
-        Projects
+        Coursework
       </span>
       <div className='flex flex-row pt-6'>
-        <GithubGlyph /><p className='pl-4'>{reponame}</p>
+        <GithubGlyph /><p className='pl-4 text-xl'>Tectonica Assignments</p>
       </div>
-      <div className='grid-cols-4 pt-4'>
+      <div className='flex flex-col align-content: flex-start'>
         {markup}
       </div>
     </div>
