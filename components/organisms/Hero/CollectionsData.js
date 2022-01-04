@@ -71,7 +71,7 @@ const CollectionsData = (props) => {
     return (<div><p>Apollo Had an Error - check logs</p></div>)
   }
 
-  const tecdata = data.topics.filter(result => result.repository === 'techtonica-assignments')
+  const tecdata = data.topics.filter(result => result)
   const sorted = tecdata.sort((a, b) => a.filepath.localeCompare(b.filepath))
   sorted.reverse()
 
