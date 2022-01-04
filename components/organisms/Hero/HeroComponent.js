@@ -10,9 +10,9 @@ const HeroComponent = (props) => {
           src={src}
         />
       </div>
-      <span className='text-4xl font-extrabold'>
+      <h1 className='text-4xl font-extrabold underline'>
         {name}
-      </span>
+      </h1>
       <p className='pt-4 pb-4'>
         {mdContent}
       </p>
