@@ -1,0 +1,21 @@
+name: NEXTJS BUILD
+on: [push]
+jobs:
+  build:
+    # This job runs on Linux
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v1
+      - name: Install Node
+        # Setups the npm installer to know which private registry to pull from
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@gitbabel'
+      - name: NPM INSTALL
+        run: npm install
+      - name: Run Build
+        run: npm run build
