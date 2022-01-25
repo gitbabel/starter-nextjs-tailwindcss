@@ -20,6 +20,6 @@ jobs:
         env:
           # PUBLIC Bearer Token
           GRAPHQL_API_URL: ${{ secrets.GRAPHQL_API_URL }}
-          API_BEARER_TOKEN: ${{ secrets.AP_BEARER_TOKEN }}
+          API_BEARER_TOKEN: ${{ secrets.API_BEARER_TOKEN }}
       - name: Run Build
         run: npm run build
